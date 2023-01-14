@@ -342,7 +342,7 @@ subdirs(Path) ->
 -spec subdirs(path(), [path()]) -> [path()].
 subdirs(Path, Subdirs) ->
     case file:list_dir(Path) of
-        {ok, Files} -> subdirs_(Path, Files, Subdirs);
+        {ok, Files} -> subdirs_(Path, Files, [Path | Subdirs]);
         {error, _} -> Subdirs
     end.
 
